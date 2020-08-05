@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.os.PersistableBundle
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -16,7 +17,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        tvStates.text = "OnCreate"
+        var run  = Runnable {
+            tvStates.text = "ON CREATE"
+        }
+        var hand = Handler()
+        hand.postDelayed(run , 1000)
+
         if(savedInstanceState==null){
             if(resources.configuration.orientation== Configuration.ORIENTATION_LANDSCAPE){
                 tvOrientation.text = "LANDSCAPE $landScapeCount"
@@ -48,32 +54,56 @@ class MainActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        tvStates.text = "OnStart"
+        var run  = Runnable {
+            tvStates.text = "ON START"
+        }
+        var hand = Handler()
+        hand.postDelayed(run , 1000)
     }
 
     override fun onResume() {
         super.onResume()
-        tvStates.text = "OnResume"
+        var run  = Runnable {
+            tvStates.text = "ON RESUME"
+        }
+        var hand = Handler()
+        hand.postDelayed(run , 1000)
     }
 
     override fun onRestart() {
         super.onRestart()
-        tvStates.text = "OnRestart"
+        var run  = Runnable {
+            tvStates.text = "ON RESTART"
+        }
+        var hand = Handler()
+        hand.postDelayed(run , 1000)
     }
 
     override fun onPause() {
         super.onPause()
-        tvStates.text = "OnPause"
+        var run  = Runnable {
+            tvStates.text = "ON Pause"
+        }
+        var hand = Handler()
+        hand.postDelayed(run , 1000)
     }
 
     override fun onStop() {
         super.onStop()
-        tvStates.text = "OnStop"
+        var run  = Runnable {
+            tvStates.text = "ON STOP"
+        }
+        var hand = Handler()
+        hand.postDelayed(run , 1000)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        tvStates.text = "OnDestroy"
+        var run  = Runnable {
+            tvStates.text = "ON Destroy"
+        }
+        var hand = Handler()
+        hand.postDelayed(run , 1000)
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
